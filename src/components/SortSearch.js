@@ -1,23 +1,27 @@
-const SearchBar = ({ search, handleSearch }) => {
+import React from "react";
+
+const SortDropdown = ({ data, handleSort }) => {
     return (
-        <input
-          type="text"
-          placeholder="Search events..."
-          value={search}
-          onChange={handleSearch}
-          className="p-2 border rounded w-full"
-        />
-      );
+        <select onChange={handleSort} className="select-box"> {
+            data?.length > 0 ? (
+              data.map((o) => <option key={o[0]} value={o[0]}>Sort by {o[1]}</option>)
+              ) : (
+                <option value="unknow">Unknown</option>
+            )}
+        </select>
+    );
 };
 
-const SortDropdown = ({ handleSort }) => {
-    return (
-      <select onChange={handleSort} className="p-2 border rounded">
-        <option value="title">Sort by Title</option>
-        <option value="start_time">Sort by Start Time</option>
-      </select>
-    );
-  };
-
+const SearchBar = ({ text, handleSearch }) => {
+  return (
+    <input
+      type="text"
+      placeholder="Search topics..."
+      value={text}
+      onKeyDown={handleSearch}
+      className="hint-text search-box"
+    />
+  );
+};
 
 export { SortDropdown, SearchBar };

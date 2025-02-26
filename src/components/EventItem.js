@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import {formatDateTime} from "../utils/FormatDateTime";
+import {formatDateTime} from "../utils/Utils";
 
 const TopicItem = ({ topic, onSelect}) => {
     if (!topic || Object.keys(topic).length === 0) {

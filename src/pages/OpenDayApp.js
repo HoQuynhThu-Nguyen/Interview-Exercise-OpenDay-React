@@ -1,15 +1,17 @@
 import React, { useState, useEffect } from "react";
 import {SortDropdown, SearchBar} from "../components/SortSearch";
 import {TopicList, ProgramList} from "../components/EventList";
-import {formatDateTime} from "../utils/FormatDateTime";
+import {formatDateTime, SortTopicsDropdown, SortProgramsDropdown} from "../utils/Utils";
+import _ from "lodash";
 import "../styles.css";
 
 const OpenDayApp = () => {
     const [data, setData] = useState({});
     const [dateTime, setDateTime] = useState({});
-    const [sortBy, setSortBy] = useState("name");
     const [searchText, setSearchText] = useState("");
+    const [sortBy, setSortBy] = useState(["name", "asc"]);
     const [selectedTopic, setSelectedTopic] = useState(null);
+    const [displayTopics, setDisplayTopics] = useState([]);
 
     useEffect(() => {
         fetch("/data/OpenDay.json")
@@ -22,19 +24,40 @@ const OpenDayApp = () => {
             const converted = {'startDate' : start.date, 'startTime' : start.time, 'endTime' : end.time};
 
             setData(jsonData || {});
+            setDisplayTopics(jsonData.topics || [])
             setDateTime(converted || {})
         })
         .catch((error) => console.error("Error loading JSON data:", error));
     }, []);
 
+    useEffect(() => {
+        if (!data.topics) return;
+
+        let filteredTopics = _.filter(data.topics, (topic) =>
+            topic.name.toLowerCase().includes(searchText.toLowerCase())
+        );
+
+        let sortedTopics;
+        if (sortBy[0] === "programs") {
+            sortedTopics = _.orderBy(filteredTopics, [(topic) => topic.programs?.length || 0], [sortBy[1]]);
+        } else {
+            sortedTopics = _.orderBy(filteredTopics, [sortBy[0]], [sortBy[1]]);
+        }
+
+
+        setDisplayTopics(sortedTopics);
+    }, [searchText, sortBy, data.topics]);
+
     const handleSearch = (e) => {
-        setSearchText(e.target.value);
-    };
-
+        if (e.key === 'Enter') {
+            console.log("aaaaaaaaa")
+            setSearchText(e.target.value);
+        }
+    }
     const handleSort = (e) => {
-        setSortBy(e.target.value);
-    };
-
+        const [field, order] = e.target.value.split(" ");
+        setSortBy([field, order]);
+    }
     const handleTopicSelect = (topic) => {
         setSelectedTopic(topic);
     }
@@ -50,16 +73,13 @@ const OpenDayApp = () => {
                 </div>
             </section>
 
-            <section>
-                <div className="controls">
-                    <SearchBar search={searchText} handleSearch={handleSearch}></SearchBar>
-                    <SortDropdown handleSort={handleSort} />
-                </div>
-            </section>
-
             { !selectedTopic ? (
                 <section>
-                    <TopicList topics={data.topics} onSelect={handleTopicSelect}></TopicList>
+                    <div className="controls">
+                        <SearchBar search={searchText} handleSearch={handleSearch}></SearchBar>
+                        <SortDropdown data={SortTopicsDropdown} handleSort={handleSort} />
+                    </div>
+                    <TopicList topics={displayTopics} onSelect={handleTopicSelect}></TopicList>
                 </section>
             ) : (
                 <section>
