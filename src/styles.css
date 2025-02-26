@@ -1,0 +1,106 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0 0;
+    padding: 20px;
+    background-color: #f5f5f5;
+    text-align: center;
+}
+h1, h2, h3, h4, h5, h6 {
+    margin: 0 0;
+}
+
+/* Container */
+.container {
+    margin: auto;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    color: #181725;
+}
+.controls {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+.flexs {
+    display: flex;
+    justify-content: space-around;
+    margin: 10px 0;
+}
+.grids {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+/* All Text */
+.title-text {
+    font-size: 30px;
+}
+.plain-text {
+    font-size: 16px;
+    text-align: left;
+}
+.card-text {
+    font-size: 22px;
+}
+.hint-text {
+    color: #7C7C7C;
+}
+
+/* Search - Sort - Filter */
+input, select {
+    padding: 8px;
+}
+.search-box {
+    width: 50%;
+    box-sizing: border-box; 
+    border-radius: 10px;
+}
+.select-box {
+    width: 20%;
+    border-radius: 10px;
+}
+
+/* List Items - Events */
+.event-card {
+    max-width: 600px;
+    background: white;
+    border: 3px solid #181725;
+    color: #181725;
+    padding: 20px;
+    border-radius: 20px;
+}
+.event-card img {
+    width: 100%;
+    height: 30vh;
+    margin-bottom: 10px;
+}
+.event-card h3 {
+    margin: 10px 0;
+}
+.event-card p {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+.hoverable:hover {
+    border: 3px solid #c13434;
+    color: #c13434;
+    cursor: pointer;
+}
+.hoverable:hover .card-text {
+    text-decoration: underline;
+}
+
+/* Back Button */
+.back-button {
+    width: 30%;
+    height: 30px;
+    font-size: 20px;
+    margin-bottom: 20px;
+}
