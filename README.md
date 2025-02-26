@@ -5,6 +5,7 @@ Interview Exercise by HoQuynhThu Nguyen
 
 ### Description
 This project is a React application that manages and displays topics and programs for an open-day event. It allows users to search and sort topics and view detailed programs.
+![Open Day App by HoQuynhThu Nguyen](/assets/images/image.jpg")
 
 ### Features
 - Displays a list of topics and detailed programs.
