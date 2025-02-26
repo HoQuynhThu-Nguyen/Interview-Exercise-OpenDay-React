@@ -31,10 +31,10 @@ h1, h2, h3, h4, h5, h6 {
 .grids {
     width: 100%;
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 20px;
 }
-  
+
 /* All Text */
 .title-text {
     font-size: 30px;
@@ -50,9 +50,18 @@ h1, h2, h3, h4, h5, h6 {
     color: #7C7C7C;
 }
 
-/* Search - Sort */
+/* Search - Sort - Filter */
 input, select {
     padding: 8px;
+}
+.search-box {
+    width: 50%;
+    box-sizing: border-box; 
+    border-radius: 10px;
+}
+.select-box {
+    width: 20%;
+    border-radius: 10px;
 }
 
 /* List Items - Events */
@@ -86,4 +95,12 @@ input, select {
 }
 .hoverable:hover .card-text {
     text-decoration: underline;
+}
+
+/* Back Button */
+.back-button {
+    width: 30%;
+    height: 30px;
+    font-size: 20px;
+    margin-bottom: 20px;
 }

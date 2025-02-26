@@ -20,4 +20,4 @@ const SortDropdown = ({ handleSort }) => {
   };
 
 
-export {SortDropdown, SearchBar};
+export { SortDropdown, SearchBar };
