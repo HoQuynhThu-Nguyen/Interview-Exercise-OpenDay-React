@@ -1,7 +1,18 @@
-import React, { useState } from "react";
-import {formatDateTime} from "../utils/FormatDateTime";
+import React from "react";
+import { formatDateTime } from "../utils/Utils";
 
-const TopicItem = ({ topic, onSelect}) => {
+/**
+ * Component: TopicItem
+ * Description: Displays a topic card. Calls `onSelect` when clicked.
+ * 
+ * Props:
+ * - topic (Object): The topic data, containing fields.
+ * - onSelect (Function): Callback function triggered when the topic is clicked.
+ * 
+ * Returns:
+ * - A div containing the topic information.
+ */
+const TopicItem = ({ topic, onSelect }) => {
     if (!topic || Object.keys(topic).length === 0) {
         return <p>No events found.</p>;
     }
@@ -15,12 +26,22 @@ const TopicItem = ({ topic, onSelect}) => {
     );
 };
 
+/**
+ * Component: ProgramItem
+ * Description: Displays a program card.
+ * 
+ * Props:
+ * - program (Object): The program data containing the necessary fields
+ * 
+ * Returns:
+ * - A div containing the program details.
+ */
 const ProgramItem = ({ program }) => {
-
     if (!program || Object.keys(program).length === 0) {
         return <p>No events found.</p>;
     }
 
+    // Format the start and end times
     const start = formatDateTime(program.start_time);
     const end = formatDateTime(program.end_time);
 
@@ -28,8 +49,10 @@ const ProgramItem = ({ program }) => {
         <div className="event-card">
             <section> 
                 <section>
-                    <img src={program.cover_image ? program.cover_image : program.location?.cover_image } alt="Program Image"/>
-
+                    <img 
+                        src={program.cover_image ? program.cover_image : program.location?.cover_image} 
+                        alt="Program Image"
+                    />
                     <h2>{program.title}</h2>
                     <div className="flexs">
                         <h4 className="plain-text">{start.date}</h4>
@@ -46,7 +69,6 @@ const ProgramItem = ({ program }) => {
                     <h4>{program.description_short}</h4>
                     <p className="plain-text">{program.description}</p>
                 </section>
-
             </section>
         </div>
     );
