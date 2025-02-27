@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/Interview-Exercise-OpenDay-React/static/css/main.d7df0449.css",
+    "main.js": "/Interview-Exercise-OpenDay-React/static/js/main.4bba44b3.js",
+    "index.html": "/Interview-Exercise-OpenDay-React/index.html",
+    "main.d7df0449.css.map": "/Interview-Exercise-OpenDay-React/static/css/main.d7df0449.css.map",
+    "main.4bba44b3.js.map": "/Interview-Exercise-OpenDay-React/static/js/main.4bba44b3.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d7df0449.css",
+    "static/js/main.4bba44b3.js"
+  ]
+}
