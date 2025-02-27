@@ -6,7 +6,7 @@ Interview Exercise by HoQuynhThu Nguyen
 ### Description
 This project is a React application that manages and displays topics and programs for an open-day event. It allows users to search and sort topics and view detailed programs.
 
-Deploy URL: `https://github.com/HoQuynhThu-Nguyen/Interview-Exercise-OpenDay-React.git`
+Deploy URL: `https://hoquynhthu-nguyen.github.io/Interview-Exercise-OpenDay-React/`
 
 ![Open Day App by HoQuynhThu Nguyen](assets/images/image.jpg)
 
