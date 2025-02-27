@@ -26,7 +26,7 @@ const OpenDayApp = () => {
     const [displayTopics, setDisplayTopics] = useState([]);
 
     useEffect(() => {
-        fetch("/data/OpenDay.json")
+        fetch(process.env.PUBLIC_URL + "/data/OpenDay.json")
         .then((response) => response.json())
         .then((jsonData) => {
             const start = formatDateTime(jsonData.start_time);
