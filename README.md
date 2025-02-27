@@ -6,6 +6,8 @@ Interview Exercise by HoQuynhThu Nguyen
 ### Description
 This project is a React application that manages and displays topics and programs for an open-day event. It allows users to search and sort topics and view detailed programs.
 
+Deploy URL: `https://github.com/HoQuynhThu-Nguyen/Interview-Exercise-OpenDay-React.git`
+
 ![Open Day App by HoQuynhThu Nguyen](assets/images/image.jpg)
 
 ### Features
@@ -26,9 +28,11 @@ Ensure you have the following installed on your system:
 
 ### Installation
 Clone the repository and install dependencies:
-``git clone <repository-url>
+```bash
+git clone https://github.com/HoQuynhThu-Nguyen/Interview-Exercise-OpenDay-React.git
 cd Interview-Exercise-OpenDay-React
-npm install``
+npm install
+```
 
 ### Installation
 To start the development server, run:
